@@ -1,0 +1,51 @@
+.logo-img {
+  width: 135px;
+  height: 45px;
+}
+.logo-img-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.bg-container {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-container {
+  background-color: #202020;
+  padding: 55px;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.input-us {
+  border-width: 1px;
+  border-color: #cbd5e1;
+  background-color: #202020;
+  height: 25px;
+  color: #ffffff;
+}
+.label-usrname {
+  font-size: 15px;
+  color: #ffffff;
+}
+.login-button {
+  background-color: blue;
+  color: #ffffff;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}

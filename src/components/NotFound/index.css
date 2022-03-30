@@ -1,0 +1,17 @@
+.app-container {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  font-size: 30px;
+  color: white;
+}
+.des {
+  font-size: 20px;
+  color: white;
+  margin-top: 0px;
+}

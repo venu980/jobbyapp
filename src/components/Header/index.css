@@ -1,0 +1,35 @@
+.nav-container {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.home {
+  font-size: 20px;
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+}
+.home-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+.jobs {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+.log-btn {
+  background-color: blue;
+  color: white;
+  font-size: 15px;
+  border: none;
+  height: 35px;
+  width: 75px;
+  border-radius: 5px;
+}
+.logo-icon {
+  width: 95px;
+  height: 45px;
+}
