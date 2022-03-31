@@ -1,0 +1,15 @@
+.jobs-profile-container {
+  background-image: url(https://assets.ccbp.in/frontend/react-js/profile-bg.png);
+  background-size: cover;
+  width: 260px;
+  height: 250px;
+  border-radius: 15px;
+}
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hr-line {
+}

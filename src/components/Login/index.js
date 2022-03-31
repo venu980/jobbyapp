@@ -1,21 +1,30 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
+
 import './index.css'
 
 class Login extends Component {
   state = {
-    userName: '',
-    passWord: '',
+    username: '',
+    password: '',
+    showSubmitError: false,
+    errorMsg: '',
   }
 
-  onSubmitSuccess = () => {
+  onSubmitSuccess = jwtToken => {
     const {history} = this.props
+    Cookies.set('jwt_token', jwtToken, {expires: 30})
     history.replace('/')
+  }
+
+  onSubmitFailure = errorMsg => {
+    this.setState({showSubmitError: true, errorMsg})
   }
 
   onSubmitForm = async event => {
     event.preventDefault()
-    const {userName, passWord} = this.state
-    const userDetails = {userName, passWord}
+    const {username, password} = this.state
+    const userDetails = {username, password}
 
     const url = 'https://apis.ccbp.in/login'
     const options = {
@@ -24,23 +33,25 @@ class Login extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
-
+    console.log(response)
     console.log(data)
     if (response.ok === true) {
-      this.onSubmitSuccess()
+      this.onSubmitSuccess(data.jwt_token)
+    } else {
+      this.onSubmitFailure(data.error_msg)
     }
   }
 
   onChangeUsername = event => {
-    this.setState({userName: event.target.value})
+    this.setState({username: event.target.value})
   }
 
   onChangePassword = event => {
-    this.setState({passWord: event.target.value})
+    this.setState({password: event.target.value})
   }
 
   renderpasswordfield = () => {
-    const {passWord} = this.state
+    const {password} = this.state
     return (
       <>
         <label className="label-usrname" htmlFor="password">
@@ -49,7 +60,7 @@ class Login extends Component {
         <input
           type="password"
           id="password"
-          value={passWord}
+          value={password}
           className="input-us"
           onChange={this.onChangePassword}
         />
@@ -58,7 +69,7 @@ class Login extends Component {
   }
 
   renderusernamefield = () => {
-    const {userName} = this.state
+    const {username} = this.state
     return (
       <>
         <label className="label-usrname" htmlFor="username">
@@ -67,7 +78,7 @@ class Login extends Component {
         <input
           type="text"
           id="username"
-          value={userName}
+          value={username}
           className="input-us"
           onChange={this.onChangeUsername}
         />
@@ -76,6 +87,7 @@ class Login extends Component {
   }
 
   render() {
+    const {showSubmitError, errorMsg} = this.state
     return (
       <div className="bg-container">
         <div className="login-container">
@@ -92,6 +104,7 @@ class Login extends Component {
             <button type="submit" className="login-button">
               Login
             </button>
+            {showSubmitError && <p className="error-message">*{errorMsg}</p>}
           </form>
         </div>
       </div>

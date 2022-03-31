@@ -4,6 +4,7 @@ import NotFound from './components/NotFound'
 
 import Home from './components/Home'
 import Login from './components/Login'
+import jobs from './components/Jobs'
 
 const employmentTypesList = [
   {
@@ -47,8 +48,7 @@ const salaryRangesList = [
 
 const App = () => (
   <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/login" component={Login} />
+    <Route exact path="/jobs" component={jobs} />
     <Route exact component={NotFound} />
   </Switch>
 )
